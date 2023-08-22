@@ -24,3 +24,7 @@ Then use the following command to run serverless offline:
 Or use 
 
 ``` serverless deploy ```
+
+## Medium
+
+https://medium.com/@ddiscua/aws-serverless-app-using-nodejs-serverless-framework-and-dynamo-db-4f7d158a9af0
