@@ -12,7 +12,12 @@ After install dependencies create a .env file and set up the proper variables(se
 - REGION= YOUR AWS REGION
 - API_URL='https://hp-api.onrender.com/api/characters'
 
-Then use the following command to run serverless offline
+
+First we need to build our application using the following command: 
+
+``` npm run build ```
+
+Then use the following command to run serverless offline:
 
 ``` serverless offline```
 

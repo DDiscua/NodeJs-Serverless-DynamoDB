@@ -3,6 +3,7 @@ import serverless from "serverless-http";
 import express from "express";
 import { addOrUpdateCharacter, getCharacters, getCharaterById } from "./services";
 import { getVariables } from "./envVariables";
+import { bulkData } from "./bulkData";
 
 const app = express();
 app.use(express.json());
@@ -54,6 +55,24 @@ app.get("/envVariables", async (req, res, next) => {
 
         return res.status(200).json({
             result: variables,
+            message: "success",
+        });
+
+    } catch (err) {
+        return res.status(500).json({
+            result: {},
+            message: err,
+        });
+    }
+});
+
+app.post("/bulkData", async (req, res, next) => {
+    try {
+
+        const postData = await bulkData();
+
+        return res.status(200).json({
+            result: postData.length,
             message: "success",
         });
 

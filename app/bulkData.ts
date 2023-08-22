@@ -20,7 +20,9 @@ export const bulkData = async () => {
             addOrUpdateCharacter({ ...character, id: i + '' });
         });
 
-        await Promise.all(charactersPromises);
+        const result = await Promise.all(charactersPromises);
+
+        return result;
     } catch (err: any) {
         throw new Error(err.message);
     }

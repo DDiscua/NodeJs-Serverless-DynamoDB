@@ -23,7 +23,10 @@ functions:
           method: GET
        - http:
           path: /envVariables
-          method: GET     
+          method: GET
+       - http:
+          path: /bulkData
+          method: POST          
 plugins:
    - serverless-offline
    - serverless-dotenv-plugin
