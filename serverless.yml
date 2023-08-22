@@ -1,0 +1,29 @@
+service: aws-node-express-api
+frameworkVersion: '3'
+useDotenv: true
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-2
+  stage: dev
+  environment:
+    TABLE_NAME: ${env:TABLE_NAME}
+    ACCESS_KEY_ID: ${env:ACCESS_KEY_ID}
+    SECRET_ACCESS_KEY: ${env:SECRET_ACCESS_KEY}
+    REGION: ${env:REGION}   
+functions:
+  api:
+    handler: dist/index.handler
+    events:
+       - http: 
+          path: /characters
+          method: GET
+       - http: 
+          path: /characters/{id}
+          method: GET
+       - http:
+          path: /envVariables
+          method: GET     
+plugins:
+   - serverless-offline
+   - serverless-dotenv-plugin
